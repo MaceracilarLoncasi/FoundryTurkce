@@ -1,8 +1,8 @@
-# German language support for Foundry VTT
+# Turkish language support for Foundry VTT
 
-## Installation
+## Yükleme
 
-1. Copy this link and use it in Foundrys module manager to install the module
+1. Bu bağlantıyı kopyalayın ve modülü yüklemek için Foundry modül yöneticisinde kullanın
     > https://gitlab.com/henry4k/foundryvtt-lang-de/-/raw/master/module.json
-2. Enable the module in your worlds module settings
-3. Choose "German" as language in your world settings
+2. Dünyanızın modül ayarlarında modülü etkinleştirin
+3. Dünya ayarlarınızda dil olarak "İngilizce"yi seçin
