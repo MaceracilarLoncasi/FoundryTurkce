@@ -1,0 +1,40 @@
+image: python:3-alpine
+
+stages:
+  - build
+  - release
+
+build:
+  stage: build
+  only:
+    - tags
+  script: |
+      python -mjson.tool 'module.json' > /dev/null
+      python xliff-tool -vv 'lang/de.xliff' export-to 'lang/de.json'
+      #for xliff in $(find -name '*.xliff'); do
+      #  json="$(dirname "$xliff")/$(basename "$xliff" .xliff).json"
+      #  python xliff-tool -vv "$xliff" export-to "$json"
+      #  python -mjson.tool "$json" > /dev/null
+      #done
+  artifacts:
+    name: lang-de
+    when: on_success
+    paths:
+      - lang/*.json
+      - tours/*.json
+      - module.json
+      - css/style.css
+
+release:
+  stage: release
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  only:
+    - tags
+  script: >
+      release-cli create
+      --name "$CI_COMMIT_TAG${CI_COMMIT_TITLE+ - }$CI_COMMIT_TITLE"
+      --description "$CI_COMMIT_DESCRIPTION"
+      --tag-name "$CI_COMMIT_TAG"
+      --assets-link="{\"name\": \"Package\", \"url\": \"$CI_PROJECT_URL/-/jobs/artifacts/$CI_COMMIT_TAG/download?job=build\"}"
+  #release:
+  #   tag_name: $CI_COMMIT_TAG

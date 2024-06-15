@@ -1,0 +1,29 @@
+{
+  "id": "lang-tr",
+  "title": "Turkish [Core]",
+  "description": "Turkish language support for Foundry VTT",
+  "version": "12.0",
+  "authors": [
+    {
+      "name": "Erozbey"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "tr",
+      "name": "Turkish (Türkçe)",
+      "path": "lang/en.json"
+    }
+  ],
+  "coreTranslation": true,
+  "url": "https://gitlab.com/henry4k/foundryvtt-lang-de",
+  "manifest": "https://gitlab.com/henry4k/foundryvtt-lang-de/-/raw/master/module.json",
+  "download": "https://gitlab.com/henry4k/foundryvtt-lang-de/-/jobs/7064222632/artifacts/download",
+  "bugs": "https://gitlab.com/henry4k/foundryvtt-lang-de/-/issues",
+  "readme": "https://gitlab.com/henry4k/foundryvtt-lang-de/-/raw/master/README.md",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12",
+    "maximum": "12"
+  }
+}
